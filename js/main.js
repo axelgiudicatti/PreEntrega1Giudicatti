@@ -16,6 +16,7 @@ let user;
 let cantidad;
 let estilo;
 let formadepago;
+let age
 
 function cantidades(estilo, cantidad) {
   switch (estilo) {
@@ -126,6 +127,10 @@ function compra() {
   pago(formadepago);
 }
 
-/*                                                            FUNCTION RUNNER */
-
-compra();
+/*                                                  +18CHECK AND       FUNCTION RUNNER */
+do {
+age = parseInt (prompt ("Ingrese su edad"));} while (isNaN(age));
+if (age>=18) {
+  compra ();
+}
+else alert ("Prohibida la venta de bebidas alcoholicas a menores de 18 años")
