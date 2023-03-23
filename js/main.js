@@ -1,17 +1,17 @@
-/*                                            VARIABLES Y FUNCIONES NECESARIAS */
+/*                                            letIABLES Y FUNCIONES NECESARIAS */
 const precioipa = 300;
 const precioirishostout = 275;
 const preciogolden = 250;
-var cantipa = 0;
-var cantirish = 0;
-var cantstout = 0;
-var cantgolden = 0;
-var subtotgolden = 0;
-var subtotipa = 0;
-var subtotirish = 0;
-var subtotstout = 0;
-var total = 0;
-var pagar;
+let cantipa = 0;
+let cantirish = 0;
+let cantstout = 0;
+let cantgolden = 0;
+let subtotgolden = 0;
+let subtotipa = 0;
+let subtotirish = 0;
+let subtotstout = 0;
+let total = 0;
+let pagar;
 let user;
 let cantidad;
 let estilo;
@@ -83,6 +83,7 @@ function pago(formadepago) {
 }
 
 /*                                                 ALGORITMO INTERACTIVO-SHOP VIRTUAL DE LATAS DE CERVEZA ARTESANAL. */
+
 user = prompt("Bienvenido a Punta y Hacha Brewing. Indicanos tu nombre");
 do {
   do {

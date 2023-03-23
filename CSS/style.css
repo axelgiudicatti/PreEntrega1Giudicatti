@@ -1,6 +1,32 @@
+/*                                                  RESET/GENERAL SETTINGS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: brown;
+  font-family: "Quicksand", sans-serif;
+  line-height: 1.5;
 }
 h1 {
   text-align: center;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 5%;
+  text-align: justify;
+  font-size: 1.3rem;
+}
+
+h1 {
+  font-size: 2rem;
+  color: black;
+  text-align: center;
+  padding: 3%;
+  text-shadow: #6494aa;
+  background-color: #89ce94;
+  margin-bottom: 0px;
 }
