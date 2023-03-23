@@ -1,4 +1,4 @@
-/*                                            letIABLES Y FUNCIONES NECESARIAS */
+/*                                            VARIABLES Y FUNCIONES NECESARIAS */
 const precioipa = 300;
 const precioirishostout = 275;
 const preciogolden = 250;
@@ -66,7 +66,9 @@ function pago(formadepago) {
   switch (formadepago) {
     case 1:
       alert(
-        "Transferir el monto total y enviar comprobante a axel.giudicatti@gmail.com\nCBU:axelgiudicatti"
+        "Transferir $" +
+          total * 0.85 +
+          " y enviar comprobante a axel.giudicatti@gmail.com\nalias:axelgiudicatti"
       );
       break;
     case 2:
@@ -83,42 +85,47 @@ function pago(formadepago) {
 }
 
 /*                                                 ALGORITMO INTERACTIVO-SHOP VIRTUAL DE LATAS DE CERVEZA ARTESANAL. */
-
-user = prompt("Bienvenido a Punta y Hacha Brewing. Indicanos tu nombre");
-do {
+function compra() {
+  user = prompt("Bienvenido a Punta y Hacha Brewing. Indicanos tu nombre");
   do {
-    estilo = parseInt(
-      prompt(
-        "Hola " +
+    do {
+      estilo = parseInt(
+        prompt(
+          "Hola " +
+            user +
+            ". Indicanos que lataestilo buscas. \n 1-IPA ($300) 2-Irish Red ($275) Ale 3-Golden Ale ($250) 4-Oatmeal Stout ($275)"
+        )
+      );
+    } while (isNaN(estilo) || estilo > 4 || estilo < 1);
+
+    do {
+      cantidad = parseInt(
+        prompt(user + ", indicanos ahora la cantidad de latas que queres")
+      );
+    } while (isNaN(cantidad));
+    cantidades(estilo, cantidad);
+    do {
+      pagar = parseInt(
+        prompt(
           user +
-          ". Indicanos que lataestilo buscas. \n 1-IPA ($300) 2-Irish Red ($275) Ale 3-Golden Ale ($250) 4-Oatmeal Stout ($275)"
-      )
-    );
-  } while (isNaN(estilo) || estilo > 4 || estilo < 1);
-
+            ", deseas agregar algo más latas a tu carrito o continuar al pago ? \n 1-Agregar más latas\n 2-Pagar"
+        )
+      );
+    } while (isNaN(pagar) || pagar > 2 || pagar < 1);
+  } while (pagar == 1);
   do {
-    cantidad = parseInt(
-      prompt(user + ", indicanos ahora la cantidad de latas que queres")
-    );
-  } while (isNaN(cantidad));
-  cantidades(estilo, cantidad);
-  do {
-    pagar = parseInt(
+    formadepago = parseInt(
       prompt(
         user +
-          ", deseas agregar algo más latas a tu carrito o continuar al pago ? \n 1-Agregar más latas\n 2-Pagar"
+          ", el total de tu compra es $ " +
+          total +
+          ". Indicanos tu forma de pago:\n 1-Transferencia Bancaria (15% off) \n 2-Tarjeta de credito (6 cuotas sin interes)\n 3-MercadoPago"
       )
     );
-  } while (isNaN(pagar) || pagar > 2 || pagar < 1);
-} while (pagar == 1);
-do {
-  formadepago = parseInt(
-    prompt(
-      user +
-        ", el total de tu compra es $ " +
-        total +
-        ". Indicanos tu forma de pago:\n 1-Transferencia Bancaria\n 2-Tarjeta de credito (6 cuotas sin interes)\n 3-MercadoPago"
-    )
-  );
-} while (isNaN(formadepago) || formadepago > 3 || formadepago < 1);
-pago(formadepago);
+  } while (isNaN(formadepago) || formadepago > 3 || formadepago < 1);
+  pago(formadepago);
+}
+
+/*                                                            FUNCTION RUNNER */
+
+compra();
